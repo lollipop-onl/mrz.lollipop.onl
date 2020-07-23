@@ -1,9 +1,9 @@
 export const mrzChunk = (str: string, length = str.length): string => {
   return str
     .slice(0, length)
+    .toUpperCase()
     .padEnd(length, ' ')
-    .replace(/ /g, '<')
-    .toUpperCase();
+    .replace(/ |[^0-9A-Z <]/g, '<');
 };
 
 export const mrzChecksum = (str: string): string => {

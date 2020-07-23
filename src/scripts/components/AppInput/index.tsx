@@ -1,5 +1,6 @@
 import React, {FC, FormEvent} from 'react';
-import { ReactiveState } from '../hooks';
+import { ReactiveState } from '../../hooks';
+import styles from './index.modules.scss';
 
 type Props = {
   value: ReactiveState<string>;
@@ -16,13 +17,16 @@ const AppInput: FC<Props> = ({ value, ...props }) => {
   }
 
   return (
-    <input
-      type="text"
-      defaultValue={value.value}
-      onInput={onInput}
-      {...props}
-    />
+    <div className={styles.appInput}>
+      <input
+        className={styles.field}
+        type="text"
+        defaultValue={value.value}
+        onInput={onInput}
+        {...props}
+      />
+    </div>
   );
-}
+};
 
 export { AppInput };

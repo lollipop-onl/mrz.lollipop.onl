@@ -1,0 +1,36 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(var(--vh, 1vh) * 100);
+
+  > .header {
+    margin-bottom: 48px;
+  }
+
+  > .mrz {
+    font-size: 3.2vw;
+    text-align: center;
+    margin-bottom: 56px;
+
+    @media (min-width: 800px) {
+      font-size: 26px;
+    }
+  }
+
+  > .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 946px;
+    margin: 0 auto;
+  }
+
+  > .container > .field {
+    width: 250px;
+    margin: 0 16px 32px 16px;
+  }
+
+  > .footer {
+    margin-top: auto;
+  }
+}
