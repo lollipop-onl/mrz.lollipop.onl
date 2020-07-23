@@ -7,7 +7,6 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "jsx": "preserve",
-    "resolveJsonModule": true,
     "strict": true,
     "noImplicitAny": true,
     "noEmit": true
