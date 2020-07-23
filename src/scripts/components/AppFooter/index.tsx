@@ -7,7 +7,30 @@ const AppFooter: FC<Props> = () => {
   return (
     <footer className={styles.appFooter}>
       <div className={styles.container}>
-        <small className={styles.copyright}>&copy; 2020 lollipop.onl</small>
+        <a
+          className={styles.link}
+          href="https://github.com/lollipop-onl/mrz.lollipop.onl"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Repository
+        </a>
+        <a
+          className={styles.link}
+          href="https://github.com/lollipop-onl/mrz.lollipop.onl/issues/new"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Report bugs
+        </a>
+        <a
+          className={styles.link}
+          href="https://twitter.com/lollipop_onl"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          @lollipop_onl
+        </a>
       </div>
     </footer>
   )

@@ -1,17 +1,27 @@
 .appFooter {
   margin-top: 32px;
+  font-size: 0.8rem;
   color: #eee;
   background: #2d3047;
 
+  a {
+    color: #fff;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
   > .container {
-    max-width: 640px;
-    padding: 32px 16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 800px;
+    padding: 16px;
     margin: 0 auto;
   }
 
-  > .container > .copyright {
-    display: block;
-    font-size: 0.8rem;
-    text-align: right;
+  > .container > .link {
+    margin-right: 16px;
   }
 }
