@@ -1,29 +1,44 @@
 import React, { FC, useEffect } from 'react';
+import qs from 'qs';
 import { AppHeader } from '../../components/AppHeader';
 import { AppFooter } from '../../components/AppFooter';
 import { AppInput } from '../../components/AppInput';
 import { AppField } from '../../components/AppField';
 import { MRZField } from "../../components/MRZField";
 import { useReactiveState } from '../../hooks';
-import {insertCssFile, insertStyle, setBaseVh} from '../../utils';
+import { getQueries, insertCssFile, insertStyle, replaceQuery, setBaseVh } from '../../utils';
 import styles from './index.modules.scss';
 import OCRB from 'url:../../../assets/OCRB.otf';
 
 type Props = {};
 
+const {
+  countryCode: initialCountryCode = '',
+  passportNo: initialPassportNo = '',
+  surname: initialSurname = '',
+  givenNames: initialGivenNames = '',
+  nationality: initialNationality = '',
+  dateOfBirth: initialDateOfBirth = '',
+  personalNo: initialOersonalNo = '',
+  sex: initialSex = '',
+  placeOfBirth: initialPlaceOfBirth = '',
+  dateOfIssue: initialDateOfIssue = '',
+  dateOfExpiry: initialDateOfExpiry = '',
+} = getQueries();
+
 const App: FC<Props> = () => {
   const type = useReactiveState('P');
-  const countryCode = useReactiveState('');
-  const passportNo = useReactiveState('');
-  const surname = useReactiveState('');
-  const givenNames = useReactiveState('');
-  const nationality = useReactiveState('');
-  const dateOfBirth = useReactiveState('');
-  const personalNo = useReactiveState('');
-  const sex = useReactiveState('');
-  const placeOfBirth = useReactiveState('');
-  const dateOfIssue = useReactiveState('');
-  const dateOfExpiry = useReactiveState('');
+  const countryCode = useReactiveState(initialCountryCode);
+  const passportNo = useReactiveState(initialPassportNo);
+  const surname = useReactiveState(initialSurname);
+  const givenNames = useReactiveState(initialGivenNames);
+  const nationality = useReactiveState(initialNationality);
+  const dateOfBirth = useReactiveState(initialDateOfBirth);
+  const personalNo = useReactiveState(initialOersonalNo);
+  const sex = useReactiveState(initialSex);
+  const placeOfBirth = useReactiveState(initialPlaceOfBirth);
+  const dateOfIssue = useReactiveState(initialDateOfIssue);
+  const dateOfExpiry = useReactiveState(initialDateOfExpiry);
 
   useEffect(() => {
     insertStyle(`
@@ -45,8 +60,20 @@ const App: FC<Props> = () => {
   }, []);
 
   useEffect(() => {
-
-  }, [type.value, countryCode.value, passportNo.value, surname.value, givenNames.value, nationality.value, dateOfBirth.value, personalNo.value, sex.value, placeOfBirth.value, dateOfIssue.value, dateOfExpiry.value]);
+    replaceQuery({
+      countryCode: countryCode.value,
+      passportNo: passportNo.value,
+      surname: surname.value,
+      givenNames: givenNames.value,
+      nationality: nationality.value,
+      dateOfBirth: dateOfBirth.value,
+      personalNo: personalNo.value,
+      sex: sex.value,
+      placeOfBirth: placeOfBirth.value,
+      dateOfIssue: dateOfIssue.value,
+      dateOfExpiry: dateOfExpiry.value,
+    })
+  }, [countryCode.value, passportNo.value, surname.value, givenNames.value, nationality.value, dateOfBirth.value, personalNo.value, sex.value, placeOfBirth.value, dateOfIssue.value, dateOfExpiry.value]);
 
   return (
     <div className={styles.appContainer}>
