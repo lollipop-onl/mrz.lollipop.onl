@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react';
-import { mrzChunk, mrzChecksum } from '../../../utils';
+import { mrzChunk, mrzChecksum } from '../../utils';
 import styles from './index.modules.scss';
 
 type Props = {
