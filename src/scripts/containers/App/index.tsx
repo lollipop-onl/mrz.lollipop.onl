@@ -5,6 +5,7 @@ import { AppInput } from '../../components/AppInput';
 import { AppField } from '../../components/AppField';
 import { MRZField } from "../../components/MRZField";
 import { useReactiveState } from '../../hooks';
+import {insertCssFile, insertStyle, setBaseVh} from '../../utils';
 import styles from './index.modules.scss';
 import OCRB from 'url:../../../assets/OCRB.otf';
 
@@ -25,9 +26,7 @@ const App: FC<Props> = () => {
   const dateOfExpiry = useReactiveState('');
 
   useEffect(() => {
-    const $style = document.createElement('style');
-
-    $style.innerHTML = `
+    insertStyle(`
       :root {
         --ocr-font-family: OCRB;
       }
@@ -40,30 +39,14 @@ const App: FC<Props> = () => {
         font-family: var(--ocr-font-family);
         src: url(${OCRB});
       }
-    `;
-
-    document.head.appendChild($style);
-
-    const $link = document.createElement('link');
-
-    $link.setAttribute('rel', 'stylesheet');
-    $link.setAttribute('href', 'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap');
-
-    document.head.appendChild($link);
-
-    const setBaseVh = () => {
-      const vh = window.innerHeight / 100;
-      const { documentElement } = document;
-
-      if (documentElement instanceof HTMLHtmlElement) {
-        documentElement.style.setProperty('--vh', `${vh}px`);
-      }
-    }
-
+    `);
+    insertCssFile('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap');
     setBaseVh();
-
-    window.addEventListener('resize', setBaseVh);
   }, []);
+
+  useEffect(() => {
+
+  }, [type.value, countryCode.value, passportNo.value, surname.value, givenNames.value, nationality.value, dateOfBirth.value, personalNo.value, sex.value, placeOfBirth.value, dateOfIssue.value, dateOfExpiry.value]);
 
   return (
     <div className={styles.appContainer}>
