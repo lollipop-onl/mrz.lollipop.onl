@@ -10,7 +10,7 @@ const AppFooter: FC<Props> = () => {
         <p className={styles.note}>
           ★ 入力内容のセキュリティは保証いたしません。実在するパスポート情報を入力しないようお気をつけください。
           <br/>
-          ★ このサイトではGoogle Analyticsによるアクセス解析を使用しています。
+          ☆ このサイトではGoogle Analyticsによるアクセス解析を使用しています。
         </p>
         <a
           className={styles.link}
