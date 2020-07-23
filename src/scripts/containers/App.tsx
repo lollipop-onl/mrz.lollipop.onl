@@ -1,32 +1,10 @@
-import React, { FC, useMemo, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { AppInput } from '../components/AppInput';
+import { MRZField } from "../components/MRZField";
 import { useReactiveState } from '../hooks';
 import OCRB from 'url:../../assets/OCRB.otf';
 
 type Props = {};
-
-const sanitize = (str: string, length = str.length) => {
-  return str.slice(0, length).padEnd(length, ' ');
-}
-
-const mrzLine = (str: string): string => {
-  const line = str.replace(/ /g, '<');
-  const trailingFiller = '<'.repeat(44 - line.length);
-
-  return [line, trailingFiller].join('').toUpperCase();
-}
-
-const checksum = (str: string): string => {
-  const total = str.split('').reduce<number>((checksum, char, i) => {
-    const num = Number.parseInt(char, 36) || 0;
-
-    checksum += num * [7, 3, 1][i % 3];
-
-    return checksum;
-  }, 0);
-
-  return `${total % 10}`;
-};
 
 const App: FC<Props> = () => {
   const type = useReactiveState('P');
@@ -46,8 +24,12 @@ const App: FC<Props> = () => {
     const $style = document.createElement('style');
 
     $style.innerHTML = `
+      :root {
+        --ocr-font-family: OCRB;
+      }
+
       @font-face {
-        font-family: "OCRB";
+        font-family: var(--ocr-font-family);
         src: url(${OCRB});
       }
     `;
@@ -55,59 +37,8 @@ const App: FC<Props> = () => {
     document.head.appendChild($style);
   }, []);
 
-  const line1 = useMemo(() => {
-    const typeValue = sanitize(type.value, 1);
-    const countryCodeValue = sanitize(countryCode.value, 3);
-    const surnameValue = sanitize(surname.value);
-    const givenNamesValue = sanitize(givenNames.value.replace(/ +/g, ' '));
-
-    return mrzLine(`${typeValue} ${countryCodeValue}${surnameValue}  ${givenNamesValue}`);
-  }, [type.value, countryCode.value, surname.value, givenNames.value]);
-
-  const line2 = useMemo(() => {
-    const passportNoValue = sanitize(passportNo.value, 9);
-    const passportNoChecksum = checksum(passportNoValue);
-    const nationalityValue = sanitize(nationality.value, 3);
-    const dateOfBirthValue = sanitize(dateOfBirth.value, 6);
-    const dateOfBirthChecksum = checksum(dateOfBirthValue)
-    const sexValue = sanitize(sex.value, 1);
-    const dateOfExpiryValue = sanitize(dateOfExpiry.value, 6);
-    const dateOfExpiryChecksum = checksum(dateOfExpiryValue);
-    const personalNoValue = sanitize(personalNo.value, 14);
-    const personalNoChecksum = checksum(personalNoValue);
-    const lineChecksum = checksum(
-      [
-        passportNoValue,
-        passportNoChecksum,
-        dateOfBirthValue,
-        dateOfBirthChecksum,
-        dateOfExpiryValue,
-        dateOfExpiryChecksum,
-        personalNoValue,
-        personalNoChecksum,
-      ].join('')
-    );
-
-    return mrzLine(
-      [
-        passportNoValue,
-        passportNoChecksum,
-        nationalityValue,
-        dateOfBirthValue,
-        dateOfBirthChecksum,
-        sexValue,
-        dateOfExpiryValue,
-        dateOfExpiryChecksum,
-        personalNoValue,
-        personalNoChecksum,
-        lineChecksum,
-      ]
-        .join('')
-    );
-  }, [passportNo.value, nationality.value, dateOfBirth.value, sex.value, dateOfExpiry.value, personalNo.value]);
-
   return (
-    <div style={{ fontFamily: 'OCRB, monospace' }}>
+    <div>
       <AppInput value={type} readOnly />
       <AppInput value={countryCode} placeholder="発行国 / Country Code" />
       <AppInput value={passportNo} placeholder="旅券番号 / Passport No." />
@@ -121,8 +52,20 @@ const App: FC<Props> = () => {
       <AppInput value={dateOfIssue} placeholder="発行年月日 / Date of issue" />
       <AppInput value={dateOfExpiry} placeholder="有効期限満了日 / Date of expiry" />
       <br/>
-      <p>{line1}</p>
-      <p>{line2}</p>
+      <MRZField
+        type={type.value}
+        countryCode={countryCode.value}
+        passportNo={passportNo.value}
+        surname={surname.value}
+        givenNames={givenNames.value}
+        nationality={nationality.value}
+        dateOfBirth={dateOfBirth.value}
+        personalNo={personalNo.value}
+        sex={sex.value}
+        placeOfBirth={placeOfBirth.value}
+        dateOfIssue={dateOfIssue.value}
+        dateOfExpiry={dateOfExpiry.value}
+      />
     </div>
   );
 };
