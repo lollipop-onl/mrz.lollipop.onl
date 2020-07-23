@@ -2,7 +2,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "parcel src/index.html --no-autoinstall"
+    "start": "parcel src/index.html --no-autoinstall",
+    "build": "parcel build src/index.html --no-sourcemaps"
   },
   "devDependencies": {
     "@types/react": "^16.9.43",
