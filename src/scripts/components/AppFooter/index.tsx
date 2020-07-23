@@ -7,11 +7,8 @@ const AppFooter: FC<Props> = () => {
   return (
     <footer className={styles.appFooter}>
       <div className={styles.container}>
-        <p className={styles.note}>
-          ★ 入力内容のセキュリティは保証いたしません。実在するパスポート情報を入力しないようお気をつけください。
-          <br/>
-          ☆ このサイトではGoogle Analyticsによるアクセス解析を使用しています。
-        </p>
+        <p className={styles.note}>★ 入力内容のセキュリティは保証いたしません。実在するパスポート情報を入力しないようお気をつけください。</p>
+        <p className={styles.note}>☆ このサイトではGoogle Analyticsによるアクセス解析を使用しています。</p>
         <a
           className={styles.link}
           href="https://github.com/lollipop-onl/mrz.lollipop.onl"

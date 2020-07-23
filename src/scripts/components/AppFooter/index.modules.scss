@@ -24,11 +24,14 @@
 
   > .container > .note {
     width: 100%;
-    margin-bottom: 8px;
     font-size: 0.7rem;
     font-weight: bold;
     color: rgba(#fff, 0.7);
     line-height: 1.7;
+  }
+
+  > .counter > .note:last-child {
+    margin-bottom: 8px;
   }
 
   > .container > .link {
