@@ -1,0 +1,12 @@
+# Dependencies
+/node_modules
+
+# misc
+.DS_Store
+*.log
+
+# Next.js
+/.next/
+/out/
+.vercel
+next-env.d.ts
