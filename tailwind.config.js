@@ -2,7 +2,11 @@
 export default {
   content: ["index.html", "src/**/*.{ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        body: ["IBM Plex Sans JP", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
