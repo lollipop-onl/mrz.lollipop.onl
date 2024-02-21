@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.5.3",
     "@tsconfig/next": "^2.0.1",
     "@types/next": "^9.0.0",
     "@types/node": "^20.11.19",
