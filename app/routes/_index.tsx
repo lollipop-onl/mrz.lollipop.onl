@@ -1,41 +1,33 @@
-import { useForm, valiForm, toCustom } from "@modular-forms/react";
+import { useForm, valiForm, toCustom, getValues } from "@modular-forms/react";
 import { MetaFunction } from "@remix-run/node";
-import { Input, object, optional, string } from "valibot";
+import { Input } from "valibot";
 import { Footer } from "~/components/Footer";
 import { FormInput } from "~/components/FormInput";
 import { Header } from "~/components/Header";
+import { Mrz } from "~/components/Mrz";
 import { DATALIST_COUNTRY } from "~/constants/country";
 import { DATALIST_SEX } from "~/constants/sex";
-
-const schema = object({
-  type: optional(string([]), "P"),
-  countryCode: optional(string([])),
-  passportNo: optional(string([])),
-  surname: optional(string([])),
-  givenNames: optional(string([])),
-  nationality: optional(string([])),
-  dateOfBirth: optional(string([])),
-  personalNo: optional(string([])),
-  sex: optional(string([])),
-  placeOfBirth: optional(string([])),
-  dateOfIssue: optional(string([])),
-  dateOfExpiry: optional(string([])),
-});
+import { PassportSchema } from "~/schemas/passport";
 
 export const meta: MetaFunction = () => {
   return [];
 };
 
 export default function Page() {
-  const [, { Field }] = useForm<Input<typeof schema>>({
-    validate: valiForm(schema),
+  const [form, { Field }] = useForm<Input<typeof PassportSchema>>({
+    validate: valiForm(PassportSchema),
     validateOn: "change",
   });
+
+  const values = getValues(form);
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="grow px-4 pb-12 pt-8">
+        <div className="mx-auto mb-12 max-w-screen-xl">
+          <Mrz values={values} />
+        </div>
         <div className="mx-auto max-w-screen-lg">
           <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-x-6 gap-y-10">
             <Field name="countryCode">
@@ -61,6 +53,7 @@ export default function Page() {
               {(field, props) => (
                 <FormInput
                   label="発行国 / Country code"
+                  options={DATALIST_COUNTRY}
                   error={field.error}
                   {...props}
                 />
