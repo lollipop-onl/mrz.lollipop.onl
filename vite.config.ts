@@ -8,7 +8,7 @@ installGlobals();
 
 export default defineConfig({
   plugins: [
-    remix({ presets: [vercelPreset()]}),
+    remix({ presets: [vercelPreset()], }),
     tsconfigPaths(),
   ],
 });
