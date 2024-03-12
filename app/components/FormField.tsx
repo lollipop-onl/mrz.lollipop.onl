@@ -11,10 +11,20 @@ type Props = {
 export const FormField = ({ children, label, htmlFor, note, error }: Props) => {
   return (
     <div>
-      <label htmlFor={htmlFor}>{label}</label>
+      <label htmlFor={htmlFor} className="text-sm font-bold text-slate-700">
+        {label}
+      </label>
       <div>{children}</div>
-      {note && <p aria-describedby={htmlFor}>{note}</p>}
-      {error && <p aria-errormessage={htmlFor}>{error}</p>}
+      <p className="text-sm text-slate-600" aria-describedby={htmlFor}>
+        {note || <>&nbsp;</>}
+      </p>
+      <p
+        className="text-sm text-red-800"
+        role="alert"
+        aria-errormessage={htmlFor}
+      >
+        {error || <>&nbsp;</>}
+      </p>
     </div>
   );
 };
