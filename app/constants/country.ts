@@ -1,798 +1,1006 @@
 import { DatalistOptionItem } from "~/types";
 
-/** @see https://www-kokusai.jsps.go.jp/jsps1/kuniList.do */
+/** @see https://ja.wikipedia.org/wiki/ISO_3166-1 */
 export const DATALIST_COUNTRY = [
   {
     value: "ISL",
-    label: "アイスランド / ICELAND",
+    label: "アイスランド / Iceland",
   },
   {
     value: "IRL",
-    label: "アイルランド / IRELAND",
+    label: "アイルランド / Ireland",
   },
   {
     value: "AZE",
-    label: "アゼルバイジャン / AZERBAIDJAN",
+    label: "アゼルバイジャン / Azerbaijan",
   },
   {
     value: "AFG",
-    label: "アフガニスタン / AFGHANISTAN",
+    label: "アフガニスタン / Afghanistan",
+  },
+  {
+    value: "USA",
+    label: "アメリカ合衆国 / United States of America",
+  },
+  {
+    value: "VIR",
+    label: "アメリカ領ヴァージン諸島 / Virgin Islands (U.S.)",
+  },
+  {
+    value: "ASM",
+    label: "アメリカ領サモア / American Samoa",
   },
   {
     value: "ARE",
-    label: "アラブ首長国連邦 / UNITED ARAB EMIRATES",
+    label: "アラブ首長国連邦 / United Arab Emirates",
   },
   {
     value: "DZA",
-    label: "アルジェリア / ALGERIA",
+    label: "アルジェリア / Algeria",
   },
   {
     value: "ARG",
-    label: "アルゼンチン / ARGENTINA",
+    label: "アルゼンチン / Argentina",
+  },
+  {
+    value: "ABW",
+    label: "アルバ / Aruba",
   },
   {
     value: "ALB",
-    label: "アルバニア / ALBANIA",
+    label: "アルバニア / Albania",
   },
   {
     value: "ARM",
-    label: "アルメニア / ARMENIA",
+    label: "アルメニア / Armenia",
+  },
+  {
+    value: "AIA",
+    label: "アンギラ / Anguilla",
   },
   {
     value: "AGO",
-    label: "アンゴラ / ANGOLA",
+    label: "アンゴラ / Angola",
   },
   {
     value: "ATG",
-    label: "アンティグア・バーブーダ / ANTIGUA & BARBUDA",
+    label: "アンティグア・バーブーダ / Antigua and Barbuda",
   },
   {
     value: "AND",
-    label: "アンドラ / ANDORRA",
+    label: "アンドラ / Andorra",
   },
   {
     value: "YEM",
-    label: "イエメン / YEMEN",
-  },
-  {
-    value: "ISR",
-    label: "イスラエル / ISRAEL",
-  },
-  {
-    value: "ITA",
-    label: "イタリア / ITALY",
-  },
-  {
-    value: "IRQ",
-    label: "イラク / IRAQ",
-  },
-  {
-    value: "IRN",
-    label: "イラン / IRAN",
-  },
-  {
-    value: "IND",
-    label: "インド / INDIA",
-  },
-  {
-    value: "IDN",
-    label: "インドネシア / INDONESIA",
-  },
-  {
-    value: "UGA",
-    label: "ウガンダ / UGANDA",
-  },
-  {
-    value: "UKR",
-    label: "ウクライナ / UKRAINE",
-  },
-  {
-    value: "UZB",
-    label: "ウズベキスタン / UZBEKISTAN",
-  },
-  {
-    value: "URY",
-    label: "ウルグアイ / URUGUAY",
+    label: "イエメン / Yemen",
   },
   {
     value: "GBR",
-    label: "英国 / UNITED KINGDOM",
+    label: "イギリス / United Kingdom of Great Britain and Northern Ireland",
+  },
+  {
+    value: "IOT",
+    label: "イギリス領インド洋地域 / British Indian Ocean Territory",
+  },
+  {
+    value: "VGB",
+    label: "イギリス領ヴァージン諸島 / Virgin Islands (British)",
+  },
+  {
+    value: "ISR",
+    label: "イスラエル / Israel",
+  },
+  {
+    value: "ITA",
+    label: "イタリア / Italy",
+  },
+  {
+    value: "IRQ",
+    label: "イラク / Iraq",
+  },
+  {
+    value: "IRN",
+    label: "イラン・イスラム共和国 / Iran (Islamic Republic of)",
+  },
+  {
+    value: "IND",
+    label: "インド / India",
+  },
+  {
+    value: "IDN",
+    label: "インドネシア / Indonesia",
+  },
+  {
+    value: "WLF",
+    label: "ウォリス・フツナ / Wallis and Futuna",
+  },
+  {
+    value: "UGA",
+    label: "ウガンダ / Uganda",
+  },
+  {
+    value: "UKR",
+    label: "ウクライナ / Ukraine",
+  },
+  {
+    value: "UZB",
+    label: "ウズベキスタン / Uzbekistan",
+  },
+  {
+    value: "URY",
+    label: "ウルグアイ / Uruguay",
   },
   {
     value: "ECU",
-    label: "エクアドル / ECUADOR",
+    label: "エクアドル / Ecuador",
   },
   {
     value: "EGY",
-    label: "エジプト / EGYPT",
+    label: "エジプト / Egypt",
   },
   {
     value: "EST",
-    label: "エストニア / ESTONIA",
+    label: "エストニア / Estonia",
   },
   {
     value: "SWZ",
-    label: "エスワティニ / ESWATINI",
+    label: "エスワティニ / Eswatini",
   },
   {
     value: "ETH",
-    label: "エチオピア / ETHIOPIA",
+    label: "エチオピア / Ethiopia",
   },
   {
     value: "ERI",
-    label: "エリトリア / ERITREA",
+    label: "エリトリア / Eritrea",
   },
   {
     value: "SLV",
-    label: "エルサルバドル / EL SALVADOR",
+    label: "エルサルバドル / El Salvador",
   },
   {
     value: "AUS",
-    label: "オーストラリア / AUSTRALIA",
+    label: "オーストラリア / Australia",
   },
   {
     value: "AUT",
-    label: "オーストリア / AUSTRIA",
+    label: "オーストリア / Austria",
+  },
+  {
+    value: "ALA",
+    label: "オーランド諸島 / Åland Islands",
   },
   {
     value: "OMN",
-    label: "オマーン / OMAN",
+    label: "オマーン / Oman",
   },
   {
     value: "NLD",
-    label: "オランダ / NETHERLANDS",
-  },
-  {
-    value: "CPV",
-    label: "カーボベルデ / CAPE VERDE",
-  },
-  {
-    value: "KAZ",
-    label: "カザフスタン / KAZAKHSTAN",
-  },
-  {
-    value: "QAT",
-    label: "カタール / QATAR",
-  },
-  {
-    value: "CAN",
-    label: "カナダ / CANADA",
-  },
-  {
-    value: "CMR",
-    label: "カメルーン / CAMEROON",
-  },
-  {
-    value: "KOR",
-    label: "韓国 / KOREA (REP. OF KOREA)",
-  },
-  {
-    value: "KHM",
-    label: "カンボジア / CAMBODIA",
+    label: "オランダ / Netherlands",
   },
   {
     value: "GHA",
-    label: "ガーナ / GHANA",
+    label: "ガーナ / Ghana",
+  },
+  {
+    value: "CPV",
+    label: "カーボベルデ / Cabo Verde",
+  },
+  {
+    value: "GGY",
+    label: "ガーンジー / Guernsey",
   },
   {
     value: "GUY",
-    label: "ガイアナ / GUYANA",
+    label: "ガイアナ / Guyana",
+  },
+  {
+    value: "KAZ",
+    label: "カザフスタン / Kazakhstan",
+  },
+  {
+    value: "QAT",
+    label: "カタール / Qatar",
+  },
+  {
+    value: "UMI",
+    label: "合衆国領有小離島 / United States Minor Outlying Islands",
+  },
+  {
+    value: "CAN",
+    label: "カナダ / Canada",
   },
   {
     value: "GAB",
-    label: "ガボン / GABON",
+    label: "ガボン / Gabon",
+  },
+  {
+    value: "CMR",
+    label: "カメルーン / Cameroon",
   },
   {
     value: "GMB",
-    label: "ガンビア / GAMBIA",
+    label: "ガンビア / Gambia",
+  },
+  {
+    value: "KHM",
+    label: "カンボジア / Cambodia",
   },
   {
     value: "MKD",
-    label: "北マケドニア / NORTH MACEDONIA",
+    label: "北マケドニア / North Macedonia",
   },
   {
-    value: "CYP",
-    label: "キプロス / CYPRUS",
-  },
-  {
-    value: "CUB",
-    label: "キューバ / CUBA",
-  },
-  {
-    value: "KIR",
-    label: "キリバス / KIRIBATI",
-  },
-  {
-    value: "KGZ",
-    label: "キルギス / KYRGYZSTAN",
+    value: "MNP",
+    label: "北マリアナ諸島 / Northern Mariana Islands",
   },
   {
     value: "GIN",
-    label: "ギニア / GUINEA",
+    label: "ギニア / Guinea",
   },
   {
     value: "GNB",
-    label: "ギニアビサウ / GUINEA-BISSAU",
+    label: "ギニアビサウ / Guinea-Bissau",
+  },
+  {
+    value: "CYP",
+    label: "キプロス / Cyprus",
+  },
+  {
+    value: "CUB",
+    label: "キューバ / Cuba",
+  },
+  {
+    value: "CUW",
+    label: "キュラソー / Curaçao",
   },
   {
     value: "GRC",
-    label: "ギリシャ / GREECE",
+    label: "ギリシャ / Greece",
   },
   {
-    value: "KWT",
-    label: "クウェート / KUWAIT",
+    value: "KIR",
+    label: "キリバス / Kiribati",
   },
   {
-    value: "COK",
-    label: "クック諸島 / COOK ISLANDS",
-  },
-  {
-    value: "HRV",
-    label: "クロアチア / CROATIA",
+    value: "KGZ",
+    label: "キルギス / Kyrgyzstan",
   },
   {
     value: "GTM",
-    label: "グアテマラ / GUATEMALA",
+    label: "グアテマラ / Guatemala",
+  },
+  {
+    value: "GLP",
+    label: "グアドループ / Guadeloupe",
+  },
+  {
+    value: "GUM",
+    label: "グアム / Guam",
+  },
+  {
+    value: "KWT",
+    label: "クウェート / Kuwait",
+  },
+  {
+    value: "COK",
+    label: "クック諸島 / Cook Islands",
+  },
+  {
+    value: "GRL",
+    label: "グリーンランド / Greenland",
+  },
+  {
+    value: "CXR",
+    label: "クリスマス島 / Christmas Island",
   },
   {
     value: "GRD",
-    label: "グレナダ / GRENADA",
+    label: "グレナダ / Grenada",
+  },
+  {
+    value: "HRV",
+    label: "クロアチア / Croatia",
+  },
+  {
+    value: "CYM",
+    label: "ケイマン諸島 / Cayman Islands",
   },
   {
     value: "KEN",
-    label: "ケニア / KENYA",
+    label: "ケニア / Kenya",
   },
   {
     value: "CIV",
-    label: "コートジボワール / COTE D'IVOIRE",
+    label: "コートジボワール / Côte d'Ivoire",
+  },
+  {
+    value: "CCK",
+    label: "ココス（キーリング）諸島 / Cocos (Keeling) Islands",
   },
   {
     value: "CRI",
-    label: "コスタリカ / COSTA RICA",
-  },
-  {
-    value: "KSV",
-    label: "コソボ / KOSOVO",
+    label: "コスタリカ / Costa Rica",
   },
   {
     value: "COM",
-    label: "コモロ / COMOROS",
+    label: "コモロ / Comoros",
   },
   {
     value: "COL",
-    label: "コロンビア / COLOMBIA",
+    label: "コロンビア / Colombia",
   },
   {
     value: "COG",
-    label: "コンゴ共和国 / CONGO",
+    label: "コンゴ共和国 / Congo",
   },
   {
     value: "COD",
-    label: "コンゴ民主共和国 / DEM. REP. OF CONGO",
+    label: "コンゴ民主共和国 / Congo, Democratic Republic of the",
   },
   {
     value: "SAU",
-    label: "サウジアラビア / SAUDI ARABIA",
+    label: "サウジアラビア / Saudi Arabia",
+  },
+  {
+    value: "SGS",
+    label:
+      "サウスジョージア・サウスサンドウィッチ諸島 / South Georgia and the South Sandwich Islands",
   },
   {
     value: "WSM",
-    label: "サモア / INDEPENDENT STATE OF SAMOA",
+    label: "サモア / Samoa",
   },
   {
     value: "STP",
-    label: "サントメ・プリンシペ / SAO TOME & PRINCIPE",
+    label: "サントメ・プリンシペ / Sao Tome and Principe",
   },
   {
-    value: "SMR",
-    label: "サンマリノ / SAN MARINO",
+    value: "BLM",
+    label: "サン・バルテルミー / Saint Barthélemy",
   },
   {
     value: "ZMB",
-    label: "ザンビア / ZAMBIA",
+    label: "ザンビア / Zambia",
+  },
+  {
+    value: "SPM",
+    label: "サンピエール島・ミクロン島 / Saint Pierre and Miquelon",
+  },
+  {
+    value: "SMR",
+    label: "サンマリノ / San Marino",
+  },
+  {
+    value: "MAF",
+    label: "サン・マルタン（フランス領） / Saint Martin (French part)",
   },
   {
     value: "SLE",
-    label: "シエラレオネ / SIERRA LEONE",
-  },
-  {
-    value: "SYR",
-    label: "シリア / SYRIA",
-  },
-  {
-    value: "SGP",
-    label: "シンガポール / SINGAPORE",
+    label: "シエラレオネ / Sierra Leone",
   },
   {
     value: "DJI",
-    label: "ジブチ / DJIBOUTI",
+    label: "ジブチ / Djibouti",
+  },
+  {
+    value: "GIB",
+    label: "ジブラルタル / Gibraltar",
+  },
+  {
+    value: "JEY",
+    label: "ジャージー / Jersey",
   },
   {
     value: "JAM",
-    label: "ジャマイカ / JAMAICA",
+    label: "ジャマイカ / Jamaica",
   },
   {
     value: "GEO",
-    label: "ジョージア / GEORGIA",
+    label: "ジョージア / Georgia",
+  },
+  {
+    value: "SYR",
+    label: "シリア・アラブ共和国 / Syrian Arab Republic",
+  },
+  {
+    value: "SGP",
+    label: "シンガポール / Singapore",
+  },
+  {
+    value: "SXM",
+    label: "シント・マールテン（オランダ領） / Sint Maarten (Dutch part)",
   },
   {
     value: "ZWE",
-    label: "ジンバブエ / ZIMBABWE",
-  },
-  {
-    value: "SDN",
-    label: "スーダン / SUDAN",
+    label: "ジンバブエ / Zimbabwe",
   },
   {
     value: "CHE",
-    label: "スイス / SWITZERLAND",
+    label: "スイス / Switzerland",
   },
   {
     value: "SWE",
-    label: "スウェーデン / SWEDEN",
+    label: "スウェーデン / Sweden",
+  },
+  {
+    value: "SDN",
+    label: "スーダン / Sudan",
+  },
+  {
+    value: "SJM",
+    label: "スヴァールバル諸島およびヤンマイエン島 / Svalbard and Jan Mayen",
   },
   {
     value: "ESP",
-    label: "スペイン / SPAIN",
+    label: "スペイン / Spain",
   },
   {
     value: "SUR",
-    label: "スリナム / SURINAME",
+    label: "スリナム / Suriname",
   },
   {
     value: "LKA",
-    label: "スリランカ / SRI LANKA",
+    label: "スリランカ / Sri Lanka",
   },
   {
     value: "SVK",
-    label: "スロバキア / SLOVAKIA",
+    label: "スロバキア / Slovakia",
   },
   {
     value: "SVN",
-    label: "スロベニア / SLOVENIA",
+    label: "スロベニア / Slovenia",
   },
   {
     value: "SYC",
-    label: "セーシェル / SEYCHELLES",
+    label: "セーシェル / Seychelles",
   },
   {
     value: "GNQ",
-    label: "赤道ギニア / EQUATORIAL GUINEA",
+    label: "赤道ギニア / Equatorial Guinea",
   },
   {
     value: "SEN",
-    label: "セネガル / SENEGAL",
+    label: "セネガル / Senegal",
   },
   {
     value: "SRB",
-    label: "セルビア / SERBIA",
+    label: "セルビア / Serbia",
   },
   {
     value: "KNA",
-    label: "セントクリストファー・ネービス / ST. CHRISTOPHER & NEVIS",
+    label: "セントクリストファー・ネイビス / Saint Kitts and Nevis",
   },
   {
     value: "VCT",
     label:
-      "セントビンセント・グレナディーン諸島 / ST. VINCENT & THE GRENADINES",
+      "セントビンセントおよびグレナディーン諸島 / Saint Vincent and the Grenadines",
+  },
+  {
+    value: "SHN",
+    label:
+      "セントヘレナ・アセンションおよびトリスタンダクーニャ / Saint Helena, Ascension and Tristan da Cunha",
   },
   {
     value: "LCA",
-    label: "セントルシア / ST. LUCIA",
+    label: "セントルシア / Saint Lucia",
   },
   {
     value: "SOM",
-    label: "ソマリア / SOMALIA",
+    label: "ソマリア / Somalia",
   },
   {
     value: "SLB",
-    label: "ソロモン / SOLOMON ISLANDS",
+    label: "ソロモン諸島 / Solomon Islands",
+  },
+  {
+    value: "TCA",
+    label: "タークス・カイコス諸島 / Turks and Caicos Islands",
   },
   {
     value: "THA",
-    label: "タイ / THAILAND",
+    label: "タイ / Thailand",
+  },
+  {
+    value: "KOR",
+    label: "大韓民国 / Korea (the Republic of)",
   },
   {
     value: "TWN",
-    label: "台湾 / TAIWAN",
+    label: "台湾（中華民国） / Taiwan, Province of China",
   },
   {
     value: "TJK",
-    label: "タジキスタン / TADZHIKISTAN",
+    label: "タジキスタン / Tajikistan",
   },
   {
     value: "TZA",
-    label: "タンザニア / TANZANIA",
+    label: "タンザニア / Tanzania, United Republic of",
   },
   {
     value: "CZE",
-    label: "チェコ / CZECH",
+    label: "チェコ / Czechia",
   },
   {
     value: "TCD",
-    label: "チャド / CHAD",
+    label: "チャド / Chad",
   },
   {
     value: "CAF",
-    label: "中央アフリカ / CENTRAL AFRICAN REP.",
+    label: "中央アフリカ共和国 / Central African Republic",
   },
   {
     value: "CHN",
-    label: "中国 / CHINA",
+    label: "中華人民共和国 / China",
   },
   {
     value: "TUN",
-    label: "チュニジア / TUNISIA",
+    label: "チュニジア / Tunisia",
+  },
+  {
+    value: "PRK",
+    label:
+      "朝鮮民主主義人民共和国 / Korea (the Democratic People's Republic of)",
   },
   {
     value: "CHL",
-    label: "チリ / CHILE",
+    label: "チリ / Chile",
   },
   {
     value: "TUV",
-    label: "ツバル / TUVALU",
+    label: "ツバル / Tuvalu",
   },
   {
     value: "DNK",
-    label: "デンマーク / DENMARK",
-  },
-  {
-    value: "TGO",
-    label: "トーゴ / TOGO",
-  },
-  {
-    value: "TTO",
-    label: "トリニダード・トバゴ / TRINIDAD & TOBAGO",
-  },
-  {
-    value: "TKM",
-    label: "トルクメニスタン / TURKMENISTAN",
-  },
-  {
-    value: "TUR",
-    label: "トルコ / TURKEY",
-  },
-  {
-    value: "TON",
-    label: "トンガ / TONGA",
+    label: "デンマーク / Denmark",
   },
   {
     value: "DEU",
-    label: "ドイツ / GERMANY",
+    label: "ドイツ / Germany",
+  },
+  {
+    value: "TGO",
+    label: "トーゴ / Togo",
+  },
+  {
+    value: "TKL",
+    label: "トケラウ / Tokelau",
   },
   {
     value: "DOM",
-    label: "ドミニカ共和国 / DOMINICAN REPUBLIC",
+    label: "ドミニカ共和国 / Dominican Republic",
   },
   {
     value: "DMA",
-    label: "ドミニカ国 / COMMOMWEALTH OF DOMINICA",
+    label: "ドミニカ国 / Dominica",
+  },
+  {
+    value: "TTO",
+    label: "トリニダード・トバゴ / Trinidad and Tobago",
+  },
+  {
+    value: "TKM",
+    label: "トルクメニスタン / Turkmenistan",
+  },
+  {
+    value: "TUR",
+    label: "トルコ / Turkey",
+  },
+  {
+    value: "TON",
+    label: "トンガ / Tonga",
   },
   {
     value: "NGA",
-    label: "ナイジェリア / NIGERIA",
+    label: "ナイジェリア / Nigeria",
   },
   {
     value: "NRU",
-    label: "ナウル / NAURU",
+    label: "ナウル / Nauru",
   },
   {
     value: "NAM",
-    label: "ナミビア / NAMIBIA",
+    label: "ナミビア / Namibia",
+  },
+  {
+    value: "ATA",
+    label: "南極 / Antarctica",
+  },
+  {
+    value: "NIU",
+    label: "ニウエ / Niue",
   },
   {
     value: "NIC",
-    label: "ニカラグア / NICARAGUA",
+    label: "ニカラグア / Nicaragua",
   },
   {
     value: "NER",
-    label: "ニジェール / NIGER",
+    label: "ニジェール / Niger",
   },
   {
     value: "JPN",
-    label: "日本 / JAPAN",
+    label: "日本 / Japan",
+  },
+  {
+    value: "ESH",
+    label: "西サハラ / Western Sahara",
+  },
+  {
+    value: "NCL",
+    label: "ニューカレドニア / New Caledonia",
   },
   {
     value: "NZL",
-    label: "ニュージーランド / NEW ZEALAND",
+    label: "ニュージーランド / New Zealand",
   },
   {
     value: "NPL",
-    label: "ネパール / NEPAL",
+    label: "ネパール / Nepal",
+  },
+  {
+    value: "NFK",
+    label: "ノーフォーク島 / Norfolk Island",
   },
   {
     value: "NOR",
-    label: "ノルウェー / NORWAY",
+    label: "ノルウェー / Norway",
   },
   {
-    value: "HTI",
-    label: "ハイチ / HAITI",
-  },
-  {
-    value: "HUN",
-    label: "ハンガリー / HUNGARY",
+    value: "HMD",
+    label: "ハード島とマクドナルド諸島 / Heard Island and McDonald Islands",
   },
   {
     value: "BHR",
-    label: "バーレーン / BAHRAIN",
+    label: "バーレーン / Bahrain",
   },
   {
-    value: "VAT",
-    label: "バチカン / VATICAN",
-  },
-  {
-    value: "VUT",
-    label: "バヌアツ / VANUATU",
-  },
-  {
-    value: "BHS",
-    label: "バハマ / BAHAMAS",
-  },
-  {
-    value: "BRB",
-    label: "バルバドス / BARBADOS",
-  },
-  {
-    value: "BGD",
-    label: "バングラデシュ / BANGLADESH",
+    value: "HTI",
+    label: "ハイチ / Haiti",
   },
   {
     value: "PAK",
-    label: "パキスタン / PAKISTAN",
+    label: "パキスタン / Pakistan",
+  },
+  {
+    value: "VAT",
+    label: "バチカン市国 / Holy See",
   },
   {
     value: "PAN",
-    label: "パナマ / PANAMA",
+    label: "パナマ / Panama",
+  },
+  {
+    value: "VUT",
+    label: "バヌアツ / Vanuatu",
+  },
+  {
+    value: "BHS",
+    label: "バハマ / Bahamas",
   },
   {
     value: "PNG",
-    label: "パプアニューギニア / PAPUA NEW GUINEA",
+    label: "パプアニューギニア / Papua New Guinea",
+  },
+  {
+    value: "BMU",
+    label: "バミューダ / Bermuda",
   },
   {
     value: "PLW",
-    label: "パラオ / PALAU",
+    label: "パラオ / Palau",
   },
   {
     value: "PRY",
-    label: "パラグアイ / PARAGUAY",
+    label: "パラグアイ / Paraguay",
+  },
+  {
+    value: "BRB",
+    label: "バルバドス / Barbados",
   },
   {
     value: "PSE",
-    label: "パレスチナ(PLO) / PALESTINE LIBERATION ORGANIZATION",
+    label: "パレスチナ / Palestine, State of",
+  },
+  {
+    value: "HUN",
+    label: "ハンガリー / Hungary",
+  },
+  {
+    value: "BGD",
+    label: "バングラデシュ / Bangladesh",
   },
   {
     value: "TLS",
-    label: "東ティモール / TIMOR-LESTE",
+    label: "東ティモール / Timor-Leste",
+  },
+  {
+    value: "PCN",
+    label: "ピトケアン / Pitcairn",
   },
   {
     value: "FJI",
-    label: "フィジー / FIJI",
+    label: "フィジー / Fiji",
   },
   {
     value: "PHL",
-    label: "フィリピン / PHILIPPINES",
+    label: "フィリピン / Philippines",
   },
   {
     value: "FIN",
-    label: "フィンランド / FINLAND",
-  },
-  {
-    value: "FRA",
-    label: "フランス / FRANCE",
+    label: "フィンランド / Finland",
   },
   {
     value: "BTN",
-    label: "ブータン / BHUTAN",
+    label: "ブータン / Bhutan",
+  },
+  {
+    value: "BVT",
+    label: "ブーベ島 / Bouvet Island",
+  },
+  {
+    value: "PRI",
+    label: "プエルトリコ / Puerto Rico",
+  },
+  {
+    value: "FRO",
+    label: "フェロー諸島 / Faroe Islands",
+  },
+  {
+    value: "FLK",
+    label: "フォークランド（マルビナス）諸島 / Falkland Islands (Malvinas)",
   },
   {
     value: "BRA",
-    label: "ブラジル / BRAZIL",
+    label: "ブラジル / Brazil",
+  },
+  {
+    value: "FRA",
+    label: "フランス / France",
+  },
+  {
+    value: "GUF",
+    label: "フランス領ギアナ / French Guiana",
+  },
+  {
+    value: "PYF",
+    label: "フランス領ポリネシア / French Polynesia",
+  },
+  {
+    value: "ATF",
+    label: "フランス領南方・南極地域 / French Southern Territories",
   },
   {
     value: "BGR",
-    label: "ブルガリア / BULGARIA",
+    label: "ブルガリア / Bulgaria",
   },
   {
     value: "BFA",
-    label: "ブルキナファソ / BURKINA FASO",
+    label: "ブルキナファソ / Burkina Faso",
   },
   {
     value: "BRN",
-    label: "ブルネイ・ダルサラーム / BRUNEI DARUSSALAM",
+    label: "ブルネイ・ダルサラーム / Brunei Darussalam",
   },
   {
     value: "BDI",
-    label: "ブルンジ / BURUNDI",
-  },
-  {
-    value: "USA",
-    label: "米国 / U.S.A.",
+    label: "ブルンジ / Burundi",
   },
   {
     value: "VNM",
-    label: "ベトナム / VIET NAM",
+    label: "ベトナム / Viet Nam",
   },
   {
     value: "BEN",
-    label: "ベナン / BENIN",
+    label: "ベナン / Benin",
   },
   {
     value: "VEN",
-    label: "ベネズエラ / VENEZUELA",
+    label: "ベネズエラ・ボリバル共和国 / Venezuela (Bolivarian Republic of)",
   },
   {
     value: "BLR",
-    label: "ベラルーシ / BELARUS",
+    label: "ベラルーシ / Belarus",
   },
   {
     value: "BLZ",
-    label: "ベリーズ / BELIZE",
-  },
-  {
-    value: "BEL",
-    label: "ベルギー / BELGIUM",
+    label: "ベリーズ / Belize",
   },
   {
     value: "PER",
-    label: "ペルー / PERU",
+    label: "ペルー / Peru",
   },
   {
-    value: "HND",
-    label: "ホンジュラス / HONDURAS",
-  },
-  {
-    value: "BIH",
-    label: "ボスニア・ヘルツェゴビナ / BOSNIA AND HERZEGOVINA",
-  },
-  {
-    value: "BWA",
-    label: "ボツワナ / BOTSWANA",
-  },
-  {
-    value: "BOL",
-    label: "ボリビア / BOLIVIA",
+    value: "BEL",
+    label: "ベルギー / Belgium",
   },
   {
     value: "POL",
-    label: "ポーランド / POLAND",
+    label: "ポーランド / Poland",
+  },
+  {
+    value: "BIH",
+    label: "ボスニア・ヘルツェゴビナ / Bosnia and Herzegovina",
+  },
+  {
+    value: "BWA",
+    label: "ボツワナ / Botswana",
+  },
+  {
+    value: "BES",
+    label:
+      "ボネール、シント・ユースタティウスおよびサバ / Bonaire, Sint Eustatius and Saba",
+  },
+  {
+    value: "BOL",
+    label: "ボリビア多民族国 / Bolivia (Plurinational State of)",
   },
   {
     value: "PRT",
-    label: "ポルトガル / PORTUGAL",
+    label: "ポルトガル / Portugal",
+  },
+  {
+    value: "HKG",
+    label: "香港 / Hong Kong",
+  },
+  {
+    value: "HND",
+    label: "ホンジュラス / Honduras",
   },
   {
     value: "MHL",
-    label: "マーシャル / REP. OF THE MARSHALL IS.",
+    label: "マーシャル諸島 / Marshall Islands",
+  },
+  {
+    value: "MAC",
+    label: "マカオ / Macau",
   },
   {
     value: "MDG",
-    label: "マダガスカル / MADAGASCAR",
+    label: "マダガスカル / Madagascar",
+  },
+  {
+    value: "MYT",
+    label: "マヨット / Mayotte",
   },
   {
     value: "MWI",
-    label: "マラウイ / MALAWI",
+    label: "マラウイ / Malawi",
   },
   {
     value: "MLI",
-    label: "マリ / MALI",
+    label: "マリ / Mali",
   },
   {
     value: "MLT",
-    label: "マルタ / MALTA",
+    label: "マルタ / Malta",
+  },
+  {
+    value: "MTQ",
+    label: "マルティニーク / Martinique",
   },
   {
     value: "MYS",
-    label: "マレーシア / MALAYSIA",
+    label: "マレーシア / Malaysia",
+  },
+  {
+    value: "IMN",
+    label: "マン島 / Isle of Man",
   },
   {
     value: "FSM",
-    label: "ミクロネシア / MICRONESIA",
+    label: "ミクロネシア連邦 / Micronesia (Federated States of)",
   },
   {
     value: "ZAF",
-    label: "南アフリカ / SOUTH AFRICA",
+    label: "南アフリカ / South Africa",
   },
   {
     value: "SSD",
-    label: "南スーダン / SOUTH SUDAN",
+    label: "南スーダン / South Sudan",
   },
   {
     value: "MMR",
-    label: "ミャンマー / MYANMAR",
+    label: "ミャンマー / Myanmar",
   },
   {
     value: "MEX",
-    label: "メキシコ / MEXICO",
+    label: "メキシコ / Mexico",
   },
   {
     value: "MUS",
-    label: "モーリシャス / MAURITIUS",
+    label: "モーリシャス / Mauritius",
   },
   {
     value: "MRT",
-    label: "モーリタニア / MAURITANIA",
+    label: "モーリタニア / Mauritania",
   },
   {
     value: "MOZ",
-    label: "モザンビーク / MOZAMBIQUE",
+    label: "モザンビーク / Mozambique",
   },
   {
     value: "MCO",
-    label: "モナコ / MONACO",
+    label: "モナコ / Monaco",
   },
   {
     value: "MDV",
-    label: "モルディブ / MALDIVES",
+    label: "モルディブ / Maldives",
   },
   {
     value: "MDA",
-    label: "モルドバ / MOLDOVA",
+    label: "モルドバ共和国 / Moldova, Republic of",
   },
   {
     value: "MAR",
-    label: "モロッコ / MOROCCO",
+    label: "モロッコ / Morocco",
   },
   {
     value: "MNG",
-    label: "モンゴル / MONGOLIA",
+    label: "モンゴル / Mongolia",
   },
   {
     value: "MNE",
-    label: "モンテネグロ / MONTENEGRO",
+    label: "モンテネグロ / Montenegro",
+  },
+  {
+    value: "MSR",
+    label: "モントセラト / Montserrat",
   },
   {
     value: "JOR",
-    label: "ヨルダン / JORDAN",
+    label: "ヨルダン / Jordan",
   },
   {
     value: "LAO",
-    label: "ラオス / LAOS",
+    label: "ラオス人民民主共和国 / Lao People's Democratic Republic",
   },
   {
     value: "LVA",
-    label: "ラトビア / LATVIA",
+    label: "ラトビア / Latvia",
   },
   {
     value: "LTU",
-    label: "リトアニア / LITHUANIA",
-  },
-  {
-    value: "LIE",
-    label: "リヒテンシュタイン / LIECHTENSTEIN",
+    label: "リトアニア / Lithuania",
   },
   {
     value: "LBY",
-    label: "リビア / LIBYA",
+    label: "リビア / Libya",
+  },
+  {
+    value: "LIE",
+    label: "リヒテンシュタイン / Liechtenstein",
   },
   {
     value: "LBR",
-    label: "リベリア / LIBERIA",
+    label: "リベリア / Liberia",
   },
   {
     value: "ROU",
-    label: "ルーマニア / ROMANIA",
+    label: "ルーマニア / Romania",
   },
   {
     value: "LUX",
-    label: "ルクセンブルク / LUXEMBOURG",
+    label: "ルクセンブルク / Luxembourg",
   },
   {
     value: "RWA",
-    label: "ルワンダ / RWANDA",
+    label: "ルワンダ / Rwanda",
   },
   {
     value: "LSO",
-    label: "レソト / LESOTHO",
+    label: "レソト / Lesotho",
   },
   {
     value: "LBN",
-    label: "レバノン / LEBANON",
+    label: "レバノン / Lebanon",
+  },
+  {
+    value: "REU",
+    label: "レユニオン / Réunion",
   },
   {
     value: "RUS",
-    label: "ロシア連邦 / RUSSIA FEDERATION",
-  },
-  {
-    value: "ZZZ",
-    label: "その他の国・地域",
+    label: "ロシア連邦 / Russian Federation",
   },
 ] satisfies DatalistOptionItem[];
