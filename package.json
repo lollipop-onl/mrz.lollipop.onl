@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "npm@10.5.0+sha256.17ca6e08e7633b624e8f870db81a78f46afe119de62bcaf0a7407574139198fc",
+  "volta": {
+    "node": "20.11.1"
+  },
+  "scripts": {
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@remix-run/node": "^2.8.1",
+    "@remix-run/react": "^2.8.1",
+    "@remix-run/server-runtime": "^2.8.1",
+    "@vercel/analytics": "^1.2.2",
+    "@vercel/remix": "^2.8.1",
+    "isbot": "^4.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.8.1",
+    "@tsconfig/vite-react": "^3.0.1",
+    "@types/node": "^20.11.26",
+    "@types/react-dom": "^18.2.21",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6",
+    "vite-tsconfig-paths": "^4.3.1"
+  }
+}
