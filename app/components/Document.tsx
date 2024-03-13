@@ -12,7 +12,7 @@ export const Document = ({ children }: Props) => {
         <Meta />
         <Links />
       </head>
-      <body className="bg-slate-100">
+      <body className="bg-white">
         {children}
         <ScrollRestoration />
         <Scripts />

@@ -15,7 +15,7 @@ export const FormField = ({ children, label, htmlFor, note, error }: Props) => {
         {label}
       </label>
       <div>{children}</div>
-      <p className="text-sm text-slate-600" aria-describedby={htmlFor}>
+      <p className="text-sm text-slate-600 mt-2" aria-describedby={htmlFor}>
         {note || <>&nbsp;</>}
       </p>
       <p

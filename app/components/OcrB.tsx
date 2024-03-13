@@ -17,8 +17,8 @@ export const OcrB = ({ char }: Props) => {
   const colIndex = CHAR_MAP[rowIndex]?.indexOf(char) ?? -1;
 
   return (
-    <div
-      className="w-full"
+    <span
+      className="block w-full text-center text-transparent"
       style={{
         backgroundImage: `url(${ocrb})`,
         backgroundSize: `${CHAR_MAP_COLS * 100}% ${CHAR_MAP_ROWS * 100}%`,
@@ -27,6 +27,8 @@ export const OcrB = ({ char }: Props) => {
         }%`,
         aspectRatio: "103/100",
       }}
-    />
+    >
+        {char}
+    </span>
   );
 };

@@ -21,7 +21,7 @@ export const FormInput = forwardRef<HTMLInputElement, Props>(
           list={datalistId}
           {...inputProps}
         />
-        {options && (
+        {/* {options && (
           <datalist id={datalistId}>
             {options.map(({ value, label }) => (
               <option key={value} value={value}>
@@ -29,7 +29,7 @@ export const FormInput = forwardRef<HTMLInputElement, Props>(
               </option>
             ))}
           </datalist>
-        )}
+        )} */}
       </FormField>
     );
   },
