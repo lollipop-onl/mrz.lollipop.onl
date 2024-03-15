@@ -1,5 +1,13 @@
+import { Outlet } from '@remix-run/react'
+import {Document} from '~/components/Document'
+import { Layout} from '~/components/Layout'
+
 export default function App() {
   return (
-    <p>Hello World</p>
+    <Document>
+      <Layout>
+        <Outlet />
+      </Layout>
+    </Document>
   )
 }
