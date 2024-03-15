@@ -1,6 +1,7 @@
-import { Outlet } from '@remix-run/react'
-import {Document} from '~/components/Document'
-import { Layout} from '~/components/Layout'
+import { Outlet } from "@remix-run/react";
+import { Document } from "~/components/Document";
+import { Layout } from "~/components/Layout";
+import "tailwindcss/tailwind.css";
 
 export default function App() {
   return (
@@ -9,5 +10,5 @@ export default function App() {
         <Outlet />
       </Layout>
     </Document>
-  )
+  );
 }
