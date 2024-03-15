@@ -1,36 +1,23 @@
-import { forwardRef, useId } from "react";
+import { forwardRef } from "react";
+import { Input, TextField } from "react-aria-components";
 import { FormField } from "~/components/FormField";
-import { DatalistOptionItem } from "~/types";
 
 type Props = React.ComponentProps<"input"> &
-  Pick<React.ComponentProps<typeof FormField>, "label" | "note" | "error"> & {
-    options?: DatalistOptionItem[];
-  };
+  Pick<React.ComponentProps<typeof FormField>, "label" | "note" | "error">;
 
 export const FormInput = forwardRef<HTMLInputElement, Props>(
-  ({ label, note, error, options, ...inputProps }, ref) => {
-    const id = useId();
-    const datalistId = options && useId();
-
+  ({ label, note, error, ...inputProps }, ref) => {
     return (
-      <FormField htmlFor={id} label={label} note={note} error={error}>
-        <input
+      <TextField>
+
+      <FormField label={label} note={note} error={error}>
+        <Input
           ref={ref}
-          id={id}
           className="w-full border-b-2 border-slate-300 bg-transparent py-2 outline-none focus:border-slate-700"
-          list={datalistId}
           {...inputProps}
         />
-        {/* {options && (
-          <datalist id={datalistId}>
-            {options.map(({ value, label }) => (
-              <option key={value} value={value}>
-                {label}
-              </option>
-            ))}
-          </datalist>
-        )} */}
       </FormField>
+      </TextField>
     );
   },
 );

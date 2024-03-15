@@ -10,6 +10,7 @@ import { MetaFunction } from "@remix-run/node";
 import { useEffect } from "react";
 import { Input } from "valibot";
 import { Footer } from "~/components/Footer";
+import { FormComboBox } from "~/components/FormComboBox";
 import { FormInput } from "~/components/FormInput";
 import { Header } from "~/components/Header";
 import { Mrz } from "~/components/Mrz";
@@ -54,7 +55,7 @@ export default function Page() {
             <FormInput label="型 / Type" value="P" readOnly />
             <Field name="countryCode" transform={transform}>
               {(field, props) => (
-                <FormInput
+                <FormComboBox
                   label="発行国 / Country code"
                   options={DATALIST_COUNTRY}
                   error={field.error}
